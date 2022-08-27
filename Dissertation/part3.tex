@@ -177,21 +177,21 @@ PvE было собрано $1062$ игры: $528$ -- игры за центр, 
 Таким образом, частоты выбора соответствующих стратегий, определенные для каждого состояния, позволили нам интерпретировать множество $f_{ij}$ как усредненную стратегию, 
 найденную группой участников эксперимента. Значения среднего времени игры представлены в сводной таблице (см. Таблицу~\cref{tab:time}).
 
+\fontsize{10pt}{10pt}\selectfont
 \begin{table}[]
     %\setlength\extrarowheight{3pt}
     \begin{tabular}{|l|c|c|c|c|c|}%{|p{1.7cm}|C{1.2cm}|C{1.2cm}|C{1.2cm}|C{1.2cm}|C{1.2cm}|}
-        \hline
         \toprule
         %\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}Размер поля\\$17 \times 17$\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Random\\walk\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}PvE центр\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}PvE граница\end{tabular}} & \textbf{PvP} & \textbf{\begin{tabular}[c]{@{}c@{}}PvP\\ 400+\end{tabular}} \\ \hline
-        Размер поля $17 \times 17$ & Random walk & \textbf{PvE центр} & \textbf{PvE граница} & \textbf{PvP} & \textbf{PvP $400+$} \\ \hline
-        \textbf{$\#$ of games} & -     & 528    & 534   & 500    & 13     \\ \hline
+        Размер поля $17 \times 17$ & Random walk & \textbf{PvE центр} & \textbf{PvE граница} & \textbf{PvP} & \textbf{PvP $400+$} \\ 
+        \textbf{$\#$ of games} & -     & 528    & 534   & 500    & 13     \\ 
         %\specialrule{.1em}{.0em}{.0em}
         \midrule
-        \textbf{Эксперимент}  & -     & 145.45 & 71.12 & 120.60 & 594.27 \\ \hline
+        \textbf{Эксперимент}  & -     & 145.45 & 71.12 & 120.60 & 594.27 \\ 
         \textbf{Моделирование траекторий}  & 75.22 & 145.77 & 73.66 & 115.93 & 132.91 \\
         \textbf{Теория Марковских цепей}  & 75.21 & 145.85 & 73.79 & 116.22 & 133.22 \\
-        \textbf{Эволюция вероятности}   & 75.21 & 145.85 & 73.79 & 116.22 & 133.22 \\ \hline
-        \textbf{Оптимальная стратегия*}     & -     & 225.00 & 64.00 &    N/A & -      \\ \hline
+        \textbf{Эволюция вероятности}   & 75.21 & 145.85 & 73.79 & 116.22 & 133.22 \\ 
+        \textbf{Оптимальная стратегия*}     & -     & 225.00 & 64.00 &    N/A & -      \\ 
         \bottomrule
     \end{tabular}
     \caption{
@@ -235,18 +235,18 @@ PvE было собрано $1062$ игры: $528$ -- игры за центр, 
 Возможность удерживать фишку внутри поля с вероятностью единица доступна только для первых $14$ ходов и на $15$-м ходу она будет поглощена с вероятностью 
 приблизительно $0.000061$ в поле $17 \times 17$. В общем случае, поглощение произойдет с ненулевой вероятностью на нечетном $n-2$ ходу.
 
+\fontsize{10pt}{10pt}\selectfont
 \begin{table}[]
     %\setlength\extrarowheight{3pt}
     \begin{tabular}{|l|c|c|c|c|c|}%{|p{1.7cm}|C{1.2cm}|C{1.2cm}|C{1.2cm}|C{1.2cm}|C{1.2cm}|}
-        \hline
         \toprule
         %\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}Размер поля\\$17 \times 17$\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Random\\walk\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}PvE центр\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}PvE граница\end{tabular}} & \textbf{PvP} & \textbf{\begin{tabular}[c]{@{}c@{}}PvP\\ 400+\end{tabular}} \\ \hline
-        Размер поля $17 \times 17$ & Random walk & \textbf{PvE центр} & \textbf{PvE граница} & \textbf{PvP} & \textbf{PvP $400+$} \\ \hline
+        Размер поля $17 \times 17$ & Random walk & \textbf{PvE центр} & \textbf{PvE граница} & \textbf{PvP} & \textbf{PvP $400+$} \\
         \midrule
-        \textbf{Эксперимент} & -     & 30:70 & 51:49 & 35:65 & 15:84 \\ \hline
+        \textbf{Эксперимент} & -     & 30:70 & 51:49 & 35:65 & 15:84 \\
         \textbf{Моделирование траекторий} & 50:50 & 30:70 & 51:49 & 36:64 & 31:69 \\
-        \textbf{Эволюция вероятности}  & 50:50 & 30:70 & 51:49 & 36:64 & 31:69 \\ \hline
-        \textbf{Оптимальная стратегия*}    & -     & 0:100 & 100:0 & N/A   & -     \\ \hline
+        \textbf{Эволюция вероятности}  & 50:50 & 30:70 & 51:49 & 36:64 & 31:69 \\
+        \textbf{Оптимальная стратегия*}    & -     & 0:100 & 100:0 & N/A   & -     \\
         \bottomrule
     \end{tabular}
     \caption{
