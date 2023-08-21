@@ -349,7 +349,7 @@
 Рассмотрим некоторый профиль концентрации хемоаттрактанта бактерий с малым линейным градиентом вдоль направления оси аппликат (ось Oz) в пространстве $\mathbb{R}^3$:
 \begin{equation}
     \begin{aligned}
-        C(z) = с_0 + |\nabla c| z
+        C(z) = c_0 + |\nabla c| z
     \label{eq:linear-concentration}
     \end{aligned}
 \end{equation}
@@ -394,11 +394,11 @@
 Подстановка выражения для плотности вероятности в \cref{eq:mean-displacement-integral-time} и интегрирование по частям приводит с учетом старта бактерии в начале координат в момент времени 0 к следующему выражению:
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{stage}]=\int_0^{\infty} M[v_z(t) \exp \left ( -\int_0^t \lambda(s) ds \right )]dt,
+        M[\Delta z_{stage}]=\int_0^{\infty} M[w_{stage}(t) \exp \left ( -\int_0^t \lambda(s) ds \right )]dt,
     \label{eq:mean-displacement-on-frequency}
     \end{aligned}
 \end{equation}
-где $v_z(t)=\frac{dz}{dt}$.
+где $w_{stage}(t)=\frac{dz}{dt}$.
 
 Используя свойство обращения интеграла от функции отклика в ноль \cref{eq:response-ecoli-zero} и линейную функцию концентрации \cref{eq:linear-concentration}, подстановка функции отклика \cref{eq:response-ecoli} в частоту переключений \cref{eq:turning-frequency} дает следующий результат:
 \begin{equation}
@@ -427,18 +427,19 @@
 \begin{equation}
     \begin{aligned}
         \lambda(t)=\lambda_0 \left ( 1 - |\nabla c| Az(t-T) \right ),
-    \label{eq:frequency-on-response}
+    \label{eq:frequency-on-delta-response}
     \end{aligned}
 \end{equation}
 
-При малых значениях градиента $|\nabla c| \ll 1$ в выражении \cref{eq:mean-displacement-on-frequency} с подстановкой \cref{eq:frequency-on-response} проведем линеаризацию экспоненты, тогда выражение для среднего смещения бактерии представляется в виде:
+При малых значениях градиента $|\nabla c| \ll 1$ в выражении \cref{eq:mean-displacement-on-frequency} с подстановкой \cref{eq:frequency-on-delta-response} проведем линеаризацию экспоненты, тогда выражение для среднего смещения бактерии представляется в виде:
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{stage}]=\int_0^{\infty} M[v_z(t)] e^{-\lambda_0 t}dt + \lambda_0 A |\nabla c|  \int_0^{\infty} e^{-\lambda_0 t} \int_0^t M[z(t-s)v_z(t)]ds,
-
+        M[\Delta z_{stage}]=\int_0^{\infty} M[w_{stage}(t)] e^{-\lambda_0 t}dt + \lambda_0 A |\nabla c|  \int_0^{\infty} e^{-\lambda_0 t} \int_0^t M[z(t-s)w_{stage}(t)]ds,
     \label{eq:md-linearization}
     \end{aligned}
 \end{equation}
+
+
 
 
 
