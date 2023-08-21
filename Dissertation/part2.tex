@@ -434,12 +434,31 @@
 При малых значениях градиента $|\nabla c| \ll 1$ в выражении \cref{eq:mean-displacement-on-frequency} с подстановкой \cref{eq:frequency-on-delta-response} проведем линеаризацию экспоненты, тогда выражение для среднего смещения бактерии представляется в виде:
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{stage}]=\int_0^{\infty} M[w_{stage}(t)] e^{-\lambda_0 t}dt + \lambda_0 A |\nabla c|  \int_0^{\infty} e^{-\lambda_0 t} \int_0^t M[z(t-s)w_{stage}(t)]ds,
+        M[\Delta z_{stage}]=\int_0^{\infty} M[w_{stage}(t)] e^{-\lambda_0 t}dt + \lambda_0 A |\nabla c|  \int_0^{\infty} e^{-\lambda_0 t} \int_0^t M[z(s-T)w_{stage}(t)]ds,
     \label{eq:md-linearization}
     \end{aligned}
 \end{equation}
 
 
+Симметрия функции плотности вероятности углового смещения при вращательной диффузии относительно начального направления движения, а также выражение для функции корреляции для направления при вращательной диффузии позволило получить выражение для $w_{stage}(t)$ \cite{locsei_persistence_2007}:
+\begin{equation}
+    \begin{aligned}
+        M[w_{stage}(t)] = e^{−2 D_r t}M[w_{stage}(0+)],
+    \label{eq:direction-rotational-diffusion}
+    \end{aligned}
+\end{equation}
+где $w(0+)$ -- проекция направления движения в начале этапа "Вперед-1" или "Вперед-2" на ось $Oz$.
+
+Подстановка выражения \cref{eq:direction-rotational-diffusion} в интеграл \cref{eq:md-linearization} с учетом $z_{stage}(t) = \int_{0}^{t} w_{stage}(u)du$ дает следующий результат:
+\begin{equation}
+    \begin{aligned}
+        M[\Delta z_{stage}]=\frac{M[w_{stage}(0+)]}{\lambda_0+2 D_r} + \lambda_0 A |\nabla c|  \int_0^{\infty} e^{-\lambda_0 t} \int_0^t \int_0^{s-T} M[w_stage(u)w_{stage}(t)]du ds.
+    \label{eq:mdl-with-rotational-diffusion}
+    \end{aligned}
+\end{equation}
+
+
+В первом приближении скорость определяется изотропным распределением:
 
 
 
