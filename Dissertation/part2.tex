@@ -12,7 +12,7 @@
 Рассмотрим минимальную модель сигнального пути с точки зрения химической кинетики. Переходы между различными значениями числа молекул белка CheY-P, обозначенного $Y$, задаются следующим уравнением:
 \begin{equation}
     \begin{aligned}
-        Y \mathrel{\mathop{\rightleftarrows}^{\mathrm{K_{y}^{+}}}_{\mathrm{K_{y}^{-}}}} Y + 1
+        Y \mathrel{\mathop{\rightleftarrows}^{\mathrm{K_{y}^{+}}}_{\mathrm{K_{y}^{-}}}} Y + 1,
     \label{eq:chem}
     \end{aligned}
 \end{equation}
@@ -149,7 +149,7 @@
         &\dot{\mathrm{P}}(\mathrm{CW},Y,t)&=&-\left (\frac{Y_0+Y}{\tau} + K_x^+(Y) \right ) \mathrm{P}(\mathrm{CW},Y,t) + K_x^-(Y) \mathrm{P}(\mathrm{CCW},Y,t)+&&\\
         &&&+\frac{Y+1}{\tau}\mathrm{P}(\mathrm{CW},Y+1,t)+\frac{Y_0}{\tau}\mathrm{P}(\mathrm{CW},Y-1,t),&&\\
         &\dot{\mathrm{P}}(\mathrm{CCW},Y,t)&=&-\left (\frac{Y_0+Y}{\tau} + K_x^-(Y) \right ) \mathrm{P}(\mathrm{CCW},Y,t) + K_x^+(Y) \mathrm{P}(\mathrm{CW},Y,t)+&&\\
-        &&&+\frac{Y+1}{\tau}\mathrm{P}(\mathrm{CCW},Y+1,t)+\frac{Y_0}{\tau}\mathrm{P}(\mathrm{CCW},Y-1,t),&&\\
+        &&&+\frac{Y+1}{\tau}\mathrm{P}(\mathrm{CCW},Y+1,t)+\frac{Y_0}{\tau}\mathrm{P}(\mathrm{CCW},Y-1,t).&&\\
     \end{aligned}
     \label{eq:master-transitions}
 \end{equation}
@@ -186,12 +186,11 @@
     \boldsymbol{\mathrm{P}}(t) = \boldsymbol{\mathrm{Q}} \boldsymbol{\mathrm{P}}(t),
     \label{eq:master-transitions-compact}
 \end{equation}
-
 где матрица $\boldsymbol{\mathrm{Q}}$ состоит из суммы двух матриц: матрицы интенсивностей переходов процесса рождения-гибели для числа молекул, состоящей из двух одинаковых полубесконечных трехдиагональных блоков $\boldsymbol{\mathrm{Q}}_{BD}$; и матрицы, определяющей интенсивности переходов между сменой направления вращения моторов, состоящей из диагональных блоков:
 
 \begin{equation}
     \boldsymbol{\mathrm{Q}}_{R} = 
-    \begin{bmatrix} \mathrm{diag}\{-K^+_x (Y)\}&\mathrm{diag}\{+K^-_x (Y)\}\\ \mathrm{diag}\{+K^+_x (Y)\}&\mathrm{diag}\{-K^-_x (Y) \} \end{bmatrix}
+    \begin{bmatrix} \mathrm{diag}\{-K^+_x (Y)\}&\mathrm{diag}\{+K^-_x (Y)\}\\ \mathrm{diag}\{+K^+_x (Y)\}&\mathrm{diag}\{-K^-_x (Y) \} \end{bmatrix},
     \label{eq:transition-block}
 \end{equation}
 где $\mathrm{diag}\{x_k\}$ -- обозначение полубесконечного диагонального матричного блока с элементами $x_k$ на диагонали.
@@ -200,27 +199,27 @@
 
 \begin{equation}
     \boldsymbol{\mathrm{P_S}} = 
-    \begin{bmatrix} P(\mathrm{CCW}, Y, 0)\\ \end{bmatrix}_Y
+    \begin{bmatrix} P(\mathrm{CCW}, Y, 0)\\ \end{bmatrix}_Y.
     \label{eq:start-prob}
 \end{equation}
 
 Для выбранного начального состояния, вероятность $P_A(t)$ может быть вычислена на основе вектора условных вероятностей обнаружения молекулы в момент времени $t$ в состоянии $(\mathrm{CCW}, Y)$ после $k$ переходов, рассмотренного при $k=0$ \cite{mordovina_full-counting_2013}: 
 \begin{equation}
-    \boldsymbol{\mathrm{P}}^{(k)}(t) = \begin{bmatrix} \boldsymbol{\mathrm{P}}^{(k)}(\mathrm{CCW}, Y, t)\end{bmatrix}_Y
+    \boldsymbol{\mathrm{P}}^{(k)}(t) = \begin{bmatrix} \boldsymbol{\mathrm{P}}^{(k)}(\mathrm{CCW}, Y, t)\end{bmatrix}_Y.
     \label{eq:conditioned-transitions}
 \end{equation}
 
 Эволюция этого вектора при $k=0$ определяется соответствующим основным кинетическим уравнением:
 
 \begin{equation}
-    \dot{\boldsymbol{\mathrm{P}}}^{(0)}(t)=\boldsymbol{\mathrm{Q}}_{NT}\mathrm{P}^{(0)}(t) = \left (\boldsymbol{\mathrm{Q}}_{BD} - \boldsymbol{\mathrm{Q}}_{10} \right )
+    \dot{\boldsymbol{\mathrm{P}}}^{(0)}(t)=\boldsymbol{\mathrm{Q}}_{NT}\mathrm{P}^{(0)}(t) = \left (\boldsymbol{\mathrm{Q}}_{BD} - \boldsymbol{\mathrm{Q}}_{10} \right ),
     \label{eq:conditioned-master-transtions}
 \end{equation}
 где $\boldsymbol{\mathrm{Q}}_{10} = \mathrm{diag}\{-K^-_x(Y)\}$ -- диагональная матрица с интенсивностями переходов из состояния CCW в состояние CW.
 
 Тогда вероятность остаться в состоянии CCW выражается следующей суммой:
 \begin{equation}
-    P_A(t) = \sum_Y \mathrm{P}^{(0)}(\mathrm{CCW},Y,t)
+    P_A(t) = \sum_Y \mathrm{P}^{(0)}(\mathrm{CCW},Y,t).
     \label{eq:no-transition-prob}
 \end{equation}
 
@@ -238,7 +237,7 @@
 Тогда плотность вероятности записывается следующим образом:
 
 \begin{equation}
-    p(t) = -\dot{P_A}(t) = \sum_Y \sum_i -lambda_i \alpha_i \exp(\lambda_i t) (\boldsymbol{v_i})_Y,
+    p(t) = -\dot{P_A}(t) = \sum_Y \sum_i -lambda_i \alpha_i \exp(\lambda_i t) (\boldsymbol{v_i})_Y.
     \label{eq:solution-no-transition-pdf}
 \end{equation}
 
@@ -260,7 +259,7 @@
 
 Тогда по теореме Байеса вероятность нахождения системы в состоянии $(\mathrm{CCW}, Y)$ при условии, что до этого она была в $(\mathrm{CW}, Y)$:
 \begin{equation}
-    P_S(Y)=\frac{P_{st}(\mathrm{CW}, Y) P_x^+(Y)}{\sum_{Y\in W} P_{st}(\mathrm{CW}, Y) P_x^+(Y)},
+    P_S(Y)=\frac{P_{st}(\mathrm{CW}, Y) P_x^+(Y)}{\sum_{Y\in W} P_{st}(\mathrm{CW}, Y) P_x^+(Y)}.
     \label{eq:start-prob-solution}
 \end{equation}
 
@@ -317,7 +316,7 @@
 
 \begin{equation}
     \begin{aligned}
-        R(t) = W \lambda_0 e^{-\lambda_0t} \left ( 1 - \frac{lambda_0T}{2} - \left (\frac{lambda_0T}{2}\right )^2 \right )
+        R(t) = W \lambda_0 e^{-\lambda_0t} \left ( 1 - \frac{\lambda_0T}{2} - \left (\frac{\lambda_0T}{2}\right )^2 \right )
     \label{eq:response-ecoli}
     \end{aligned}
 \end{equation}
@@ -336,7 +335,7 @@
 
 Не нарушая общности рассмотрим движение бактерии как случайное блуждание в пространстве, начинающееся с события <<$\alpha$-поворот>> в момент времени $t=0$, затем событие движения <<Вперед-2>> длительностью $t_{\beta}$, соответственно, событие <<$\beta$-поворот>> в момент времени $t=t_{\beta}$ и событие <<Вперед-1>> длительностью $t_{\alpha}$. Определим вектор положения бактерии $\textbf{r}(t)=(x(t),y(t),z(t))$ в момент времени $t$ как сумму смещений $\Delta r_{\alpha}=(\Delta x_{\alpha},\Delta y_{\alpha},\Delta z_{\alpha})$ и $\Delta r_{\beta}=(\Delta x_{\beta},\Delta y_{\beta},\Delta z_{\beta})$ соответствующих парам событий. 
 
-Дополнительно определим функцию плотности вероятности $p(t)=p_{\alpha}(t)=p_{\beta}(t)$ длительностей $t$ участков прямолинейного движения. 
+Дополнительно определим функцию плотности вероятности длительностей $t$ участков прямолинейного движения $p(t)=p_{\alpha}(t)=p_{\beta}(t)$. 
 
 Описанная модель будет использована для дальнейшего анализа скорости смещения бактерий, пространственного распределения и оценки параметров химической чувствительности и коэффициента диффузии, с применением аналитических методов и численного моделирования. 
 
