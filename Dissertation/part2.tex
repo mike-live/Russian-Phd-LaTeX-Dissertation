@@ -287,10 +287,10 @@
 
 Пусть паттерн движения состоит из 4 этапов: 
 \begin{enumerate}
-  \item "Вперед-1": прямолинейное движение в некотором направлении.
-  \item "$\alpha$-поворот": поворот на некоторый случайный угол $\Delta\phi_1$ при котором средний косинус угла равен $\alpha$, то есть $M[\cos (\Delta\phi_1)]=\alpha$.
-  \item "Вперед-2": прямолинейное движение в новом направлении.
-  \item "$\beta$-поворот": поворот на некоторый случайный угол $\Delta\phi_2$ при котором средний косинус угла равен $\beta$, то есть $M[\cos (\Delta\phi_2)]=\beta$.
+  \item <<Вперед-1>>: прямолинейное движение в некотором направлении.
+  \item <<$\alpha$-поворот>>: поворот на некоторый случайный угол $\Delta\phi_1$ при котором средний косинус угла равен $\alpha$, то есть $M[\cos (\Delta\phi_1)]=\alpha$.
+  \item <<Вперед-2>>: прямолинейное движение в новом направлении.
+  \item <<$\beta$-поворот>>: поворот на некоторый случайный угол $\Delta\phi_2$ при котором средний косинус угла равен $\beta$, то есть $M[\cos (\Delta\phi_2)]=\beta$.
 \end{enumerate}
 
 Скорость движения бактерии при прямолинейном движении рассматривается как константа, одинаковая для 1 и 3 этапов. Однако, существуют другие виды бактерий, например, P.~putida, обладающие различной скоростью движения чередующихся прямолинейных движений \cite{theves_bacterial_2013}. В данной модели скорости выбраны одинаковыми, чтобы сконцентрироваться на влиянии именно паттерна движения, состоящего из двух различных углов.
@@ -334,7 +334,7 @@
 
 Ранее в экспериментальных исследованиях была измерена функция отклика для бактерий вида V.alginolyticus \cite{xie_element_2015}, обладающая необходимым свойством. Функции отклика для движения в прямом и реверсивном этапах в общем случае могут различаться \cite{xie_marine_2015}. Далее, для упрощения анализа, предполагается, что функции отклика для обоих вариантов прямолинейного движения совпадают.
 
-Не нарушая общности рассмотрим движение бактерии как случайное блуждание в пространстве, начинающееся с события "$\alpha$-поворот" в момент времени $t=0$, затем событие движения "Вперед-2" длительностью $t_{\beta}$, соответственно, событие "$\beta$-поворот" в момент времени $t=t_{\beta}$ и событие "Вперед-1" длительностью $t_{\alpha}$. Определим вектор положения бактерии $\textbf{r}(t)=(x(t),y(t),z(t))$ в момент времени $t$ как сумму смещений $\Delta r_{\alpha}=(\Delta x_{\alpha},\Delta y_{\alpha},\Delta z_{\alpha})$ и $\Delta r_{\beta}=(\Delta x_{\beta},\Delta y_{\beta},\Delta z_{\beta})$ соответствующих парам событий. 
+Не нарушая общности рассмотрим движение бактерии как случайное блуждание в пространстве, начинающееся с события <<$\alpha$-поворот>> в момент времени $t=0$, затем событие движения <<Вперед-2>> длительностью $t_{\beta}$, соответственно, событие <<$\beta$-поворот>> в момент времени $t=t_{\beta}$ и событие <<Вперед-1>> длительностью $t_{\alpha}$. Определим вектор положения бактерии $\textbf{r}(t)=(x(t),y(t),z(t))$ в момент времени $t$ как сумму смещений $\Delta r_{\alpha}=(\Delta x_{\alpha},\Delta y_{\alpha},\Delta z_{\alpha})$ и $\Delta r_{\beta}=(\Delta x_{\beta},\Delta y_{\beta},\Delta z_{\beta})$ соответствующих парам событий. 
 
 Дополнительно определим функцию плотности вероятности $p(t)=p_{\alpha}(t)=p_{\beta}(t)$ длительностей $t$ участков прямолинейного движения. 
 
@@ -349,13 +349,13 @@
 Рассмотрим некоторый профиль концентрации хемоаттрактанта бактерий с малым линейным градиентом вдоль направления оси аппликат (ось Oz) в пространстве $\mathbb{R}^3$:
 \begin{equation}
     \begin{aligned}
-        C(z) = c_0 + |\nabla c| z
+        C(z) = c_0 + |\nabla c| z,
     \label{eq:linear-concentration}
     \end{aligned}
 \end{equation}
 где $|\nabla c|=const$ -- постоянный градиент концентрации, $c_0$ -- фоновая концентрация.
 
-Средняя скорость смещения может быть определена с точки зрения ожидаемого движения за один проход 4 этапов \cite{locsei_persistence_2007}. Для определения итоговой скорости смещения необходимо вычислить сумму проекций средних смещений на ось $Oz$ на участках после $\alpha$-поворота и после $\beta$-поворота и разделить на среднее время прохода:
+Средняя скорость смещения может быть определена с точки зрения ожидаемого движения за один проход 4 этапов \cite{locsei_persistence_2007}. Для определения итоговой скорости смещения необходимо вычислить сумму проекций средних смещений на ось $Oz$ на участках после <<$\alpha$-поворота>> и после <<$\beta$-поворота>> и разделить на среднее время прохода:
 
 \begin{equation}
     \begin{aligned}
@@ -368,7 +368,7 @@
 На прямолинейных участках паттерна бактерия может отклоняться от направления движения за счет вращательной диффузии. Рассмотрим отдельно два участка прямолинейного движения, и, используя функцию распределения длительностей движения до поворота $p(t)$ для конкретного пути, вычислим условное математическое ожидание смещения бактерии при окончании этапа движения в различные моменты времени $t$:
 \begin{equation}
     \begin{aligned}
-        \Delta z_{stage}=\int_0^{\infty} \Delta z_{stage}(t)p(t)dt
+        \Delta z_{stage}=\int_0^{\infty} \Delta z_{stage}(t)p(t)dt,
     \label{eq:displacement-integral-time}
     \end{aligned}
 \end{equation}
@@ -377,7 +377,7 @@
 Так как броуновское движение из-за вращательной диффузии не зависит от длительности этапа, то усреднение по всем путям возможно внести под знак интеграла:
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{stage}]=\int_0^{\infty} M[\Delta z_{stage}(t)p(t)]dt
+        M[\Delta z_{stage}]=\int_0^{\infty} M[\Delta z_{stage}(t)p(t)]dt.
     \label{eq:mean-displacement-integral-time}
     \end{aligned}
 \end{equation}
@@ -403,7 +403,7 @@
 Используя свойство обращения интеграла от функции отклика в ноль \cref{eq:response-ecoli-zero} и линейную функцию концентрации \cref{eq:linear-concentration}, подстановка функции отклика \cref{eq:response-ecoli} в частоту переключений \cref{eq:turning-frequency} дает следующий результат:
 \begin{equation}
     \begin{aligned}
-        \lambda(t)=\lambda_0 \left ( 1 - |\nabla c| \int_{-\infty}^t R(t-\tau)z(\tau)d\tau \right ),
+        \lambda(t)=\lambda_0 \left ( 1 - |\nabla c| \int_{-\infty}^t R(t-\tau)z(\tau)d\tau \right ).
     \label{eq:frequency-on-response}
     \end{aligned}
 \end{equation}
@@ -426,7 +426,7 @@
 Далее выполним расчет среднего смещения бактерии при функции отклика задаваемой $\delta$-функцией. Подстановка выражения \cref{eq:response-delta} в \cref{eq:frequency-on-response} приводит к следующему выражению:
 \begin{equation}
     \begin{aligned}
-        \lambda(t)=\lambda_0 \left ( 1 - |\nabla c| Az(t-T) \right ),
+        \lambda(t)=\lambda_0 \left ( 1 - |\nabla c| Az(t-T) \right ).
     \label{eq:frequency-on-delta-response}
     \end{aligned}
 \end{equation}
@@ -434,7 +434,7 @@
 При малых значениях градиента $|\nabla c| \ll 1$ в выражении \cref{eq:mean-displacement-on-frequency} с подстановкой \cref{eq:frequency-on-delta-response} проведем линеаризацию экспоненты, тогда выражение для среднего смещения бактерии представляется в виде:
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{stage}]=\int_0^{\infty} M[w_{stage}(t)] e^{-\lambda_0 t}dt + \lambda_0 A |\nabla c|  \int_0^{\infty} e^{-\lambda_0 t} \int_0^t M[z(s-T)w_{stage}(t)]ds dt,
+        M[\Delta z_{stage}]&=\int_0^{\infty} M[w_{stage}(t)] e^{-\lambda_0 t}dt + \\ &+ \lambda_0 A |\nabla c|  \int_0^{\infty} e^{-\lambda_0 t} \int_0^t M[z(s-T)w_{stage}(t)]ds dt.
     \label{eq:md-linearization}
     \end{aligned}
 \end{equation}
@@ -447,12 +447,12 @@
     \label{eq:direction-rotational-diffusion}
     \end{aligned}
 \end{equation}
-где $w(0+)$ -- проекция направления движения в начале этапа "Вперед-1" или "Вперед-2" на ось $Oz$.
+где $w(0+)$ -- проекция направления движения в начале этапа <<Вперед-1>> или <<Вперед-2>> на ось $Oz$.
 
 Подстановка выражения \cref{eq:direction-rotational-diffusion} в интеграл \cref{eq:md-linearization} с учетом $z_{stage}(t) = \int_{0}^{t} w_{stage}(u)du$ дает следующий результат:
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{stage}]=\frac{M[w_{stage}(0+)]}{\lambda_0+2 D_r} + \lambda_0 A |\nabla c|  \int_0^{\infty} e^{-\lambda_0 t} \int_0^t \int_0^{s-T} M[w_{stage}(u)w_{stage}(t)]du ds dt.
+        M[\Delta z_{stage}]&=\frac{M[w_{stage}(0+)]}{\lambda_0+2 D_r} + \\ &+ \lambda_0 A |\nabla c|  \int_0^{\infty} e^{-\lambda_0 t} \int_0^t \int_0^{s-T} M[w_{stage}(u)w_{stage}(t)]du ds dt.
     \label{eq:mdl-with-rotational-diffusion}
     \end{aligned}
 \end{equation}
@@ -461,7 +461,7 @@
 Если пренебречь хемотаксисом, положение и скорость определяются изотропными распределениями, поэтому функцию корреляции между скоростями можно представить в виде:
 \begin{equation}
     \begin{aligned}
-        M[w_{stage}(u)w_{stage}(t)]=\frac{v_0^2}{3} M[\textbf{e}_{stage}(u) \cdot \textbf{e}_{stage}(t)]
+        M[w_{stage}(u)w_{stage}(t)]=\frac{v_0^2}{3} M[\textbf{e}_{stage}(u) \cdot \textbf{e}_{stage}(t)],
     \label{eq:speed-correlation-function}
     \end{aligned}
 \end{equation}
@@ -472,19 +472,20 @@
     \begin{aligned}
         M[\textbf{e}_{\beta}(u) \cdot \textbf{e}_{\beta}(t)] = 
         \begin{cases}
-            e^{-2D_r(t-u)} & \text{если } 0 \leq u < t \\
-            \alpha e^{-2D_r t} e^{-(\lambda_0+2D_r)|u|} \cdot \\ \cdot \left ( \sqrt{\frac{\beta}{\alpha}} \sinh (\sqrt{\alpha \beta} \lambda_0 |u|) + \cosh(\sqrt{\alpha \beta} \lambda_0 |u|) \right ) & \text{если } u < 0.
+            e^{-2D_r(t-u)} & \text{если } 0 \leq u < t, \\
+            \alpha e^{-2D_r t} e^{-(\lambda_0+2D_r)|u|} \times \\ 
+            \times \left ( \sqrt{\frac{\beta}{\alpha}} \sinh (\sqrt{\alpha \beta} \lambda_0 |u|) + \cosh(\sqrt{\alpha \beta} \lambda_0 |u|) \right ) & \text{если } u < 0.
         \end{cases}        
     \label{eq:direction-correlation-function}
     \end{aligned}
 \end{equation}
 Аналогичную функцию корреляции можно записать для второго этапа $stage=\alpha$.
 
-Подставляя \cref{eq:direction-correlation-function,eq:speed-correlation-function} в выражение для среднего смещения этапа "Вперед-1" , соответствующего $stage=\beta$, \cref{eq:mdl-with-rotational-diffusion} получим:
+Подставляя \cref{eq:direction-correlation-function,eq:speed-correlation-function} в выражение для среднего смещения этапа <<Вперед-1>>, соответствующего $stage=\beta$, \cref{eq:mdl-with-rotational-diffusion} получим:
 
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{\beta}]=\frac{M[w_{\beta}(0+)]}{\lambda_0+2 D_r} + \lambda_0 A |\nabla c| \frac{v_0^2}{3} \left ( k_{\beta} \cosh(\sqrt{\alpha \beta} \lambda_0 T) + m_{\beta} \sinh(\sqrt{\alpha \beta} \lambda_0 T) + n_{\beta}) \right )
+        M[\Delta z_{\beta}]&=\frac{M[w_{\beta}(0+)]}{\lambda_0+2 D_r} + \\ &+ \lambda_0 A |\nabla c| \frac{v_0^2}{3} \left ( k_{\beta} \cosh(\sqrt{\alpha \beta} \lambda_0 T) + m_{\beta} \sinh(\sqrt{\alpha \beta} \lambda_0 T) + n_{\beta}) \right ),
         \label{eq:mdlrd-solution-beta}
     \end{aligned}
 \end{equation}
@@ -500,14 +501,14 @@
 
 
 
-Аналогичное выражение для среднего смещения можно записать для этапа "Вперед-2" ($stage=\alpha$):
+Аналогичное выражение для среднего смещения можно записать для этапа <<Вперед-2>> ($stage=\alpha$):
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{\alpha}]=\frac{M[w_{\alpha}(0+)]}{\lambda_0+2 D_r} + \lambda_0 A |\nabla c| \frac{v_0^2}{3} \left ( k_{\alpha} \cosh(\sqrt{\alpha \beta} \lambda_0 T) + m_{\alpha} \sinh(\sqrt{\alpha \beta} \lambda_0 T) + n_{\alpha}) \right )
+        M[\Delta z_{\alpha}]&=\frac{M[w_{\alpha}(0+)]}{\lambda_0+2 D_r} +\\ &+ \lambda_0 A |\nabla c| \frac{v_0^2}{3} \left ( k_{\alpha} \cosh(\sqrt{\alpha \beta} \lambda_0 T) + m_{\alpha} \sinh(\sqrt{\alpha \beta} \lambda_0 T) + n_{\alpha}) \right )
         \label{eq:mdlrd-solution-alpha}
     \end{aligned}
 \end{equation}
-где $w_{\alpha}(0+)=w_{\beta}(t_{\beta}+)$ соответствует начальной скорости движения на этапе "Вперед-2" ($stage=\alpha$), а коэффициенты определяются по формулам:
+где $w_{\alpha}(0+)=w_{\beta}(t_{\beta}+)$ соответствует начальной скорости движения на этапе <<Вперед-2>> ($stage=\alpha$), а коэффициенты определяются по формулам:
 \begin{equation}
     \begin{aligned}
         k_{\alpha}&=\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}(2D_r+\lambda_0+\beta\lambda_0)}{(2D_r+\lambda_0)(4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2)}, \\
