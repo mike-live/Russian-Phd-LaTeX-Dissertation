@@ -355,11 +355,11 @@
 \end{equation}
 где $|\nabla c|=const$ -- постоянный градиент концентрации, $c_0$ -- фоновая концентрация.
 
-Средняя скорость смещения может быть определена с точки зрения ожидаемого движения за один проход 4 этапов \cite{locsei_persistence_2007}. Для определения итоговой скорости смещения необходимо вычислить сумму проекций средних смещений на ось $Oz$ на участках после $alpha$-поворота и после $beta$-поворота и разделить на среднее время прохода:
+Средняя скорость смещения может быть определена с точки зрения ожидаемого движения за один проход 4 этапов \cite{locsei_persistence_2007}. Для определения итоговой скорости смещения необходимо вычислить сумму проекций средних смещений на ось $Oz$ на участках после $\alpha$-поворота и после $\beta$-поворота и разделить на среднее время прохода:
 
 \begin{equation}
     \begin{aligned}
-        (M[\Delta z_{\alpha}] + M[\Delta z_{\beta}])/{2\tau_{run}},
+        \frac{M[\Delta z_{\alpha}] + M[\Delta z_{\beta}]}{{2\tau_{run}}},
     \label{eq:drift-speed-alpha-beta}
     \end{aligned}
 \end{equation}
@@ -394,7 +394,7 @@
 Подстановка выражения для плотности вероятности в \cref{eq:mean-displacement-integral-time} и интегрирование по частям приводит с учетом старта бактерии в начале координат в момент времени 0 к следующему выражению:
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{stage}]=\int_0^{\infty} M[w_{stage}(t) \exp \left ( -\int_0^t \lambda(s) ds \right )]dt,
+        M[\Delta z_{stage}]=\int_0^{\infty} M \left [w_{stage}(t) \exp \left ( -\int_0^t \lambda(s) ds \right ) \right ]dt,
     \label{eq:mean-displacement-on-frequency}
     \end{aligned}
 \end{equation}
@@ -408,7 +408,7 @@
     \end{aligned}
 \end{equation}
 
-Используя подход, предложенный в работе де Жена \cite{} и проводя расчет среднего смещения бактерии  $M[\Delta z_{stage}]_{\delta}$ для упрощенной функции отклика в виде $\delta$-функции с временной задержкой $T \geq 0$ и силой отклика $A$
+Используя подход, предложенный в работе де Жена \cite{de_gennes_chemotaxis_2004} и проводя расчет среднего смещения бактерии  $M[\Delta z_{stage}]_{\delta}$ для упрощенной функции отклика в виде $\delta$-функции с временной задержкой $T \geq 0$ и силой отклика $A$
 \begin{equation}
     \begin{aligned}
         R_\delta(t) = A \delta(t - T),
@@ -418,7 +418,7 @@
 можно вычислить искомое среднее смещение бактерии для функции отклика применяя интегрирование:
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{stage}]=\int_0^{\infty} R(T) M[\Delta z_{stage}(T)]_{\delta} dT.
+        M[\Delta z_{stage}]=\int_0^{\infty} R(T) M[\Delta z_{stage,\delta}(T)] dT.
     \label{eq:mean-displacement-on-md-delta}
     \end{aligned}
 \end{equation}
@@ -434,7 +434,7 @@
 При малых значениях градиента $|\nabla c| \ll 1$ в выражении \cref{eq:mean-displacement-on-frequency} с подстановкой \cref{eq:frequency-on-delta-response} проведем линеаризацию экспоненты, тогда выражение для среднего смещения бактерии представляется в виде:
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{stage}]=\int_0^{\infty} M[w_{stage}(t)] e^{-\lambda_0 t}dt + \lambda_0 A |\nabla c|  \int_0^{\infty} e^{-\lambda_0 t} \int_0^t M[z(s-T)w_{stage}(t)]ds,
+        M[\Delta z_{stage}]=\int_0^{\infty} M[w_{stage}(t)] e^{-\lambda_0 t}dt + \lambda_0 A |\nabla c|  \int_0^{\infty} e^{-\lambda_0 t} \int_0^t M[z(s-T)w_{stage}(t)]ds dt,
     \label{eq:md-linearization}
     \end{aligned}
 \end{equation}
@@ -443,7 +443,7 @@
 Симметрия функции плотности вероятности углового смещения при вращательной диффузии относительно начального направления движения, а также выражение для функции корреляции для направления при вращательной диффузии позволило получить выражение для $w_{stage}(t)$ \cite{locsei_persistence_2007}:
 \begin{equation}
     \begin{aligned}
-        M[w_{stage}(t)] = e^{−2 D_r t}M[w_{stage}(0+)],
+        M[w_{stage}(t)] = e^{-2 D_r t}M[w_{stage}(0+)],
     \label{eq:direction-rotational-diffusion}
     \end{aligned}
 \end{equation}
@@ -452,14 +452,70 @@
 Подстановка выражения \cref{eq:direction-rotational-diffusion} в интеграл \cref{eq:md-linearization} с учетом $z_{stage}(t) = \int_{0}^{t} w_{stage}(u)du$ дает следующий результат:
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{stage}]=\frac{M[w_{stage}(0+)]}{\lambda_0+2 D_r} + \lambda_0 A |\nabla c|  \int_0^{\infty} e^{-\lambda_0 t} \int_0^t \int_0^{s-T} M[w_stage(u)w_{stage}(t)]du ds.
+        M[\Delta z_{stage}]=\frac{M[w_{stage}(0+)]}{\lambda_0+2 D_r} + \lambda_0 A |\nabla c|  \int_0^{\infty} e^{-\lambda_0 t} \int_0^t \int_0^{s-T} M[w_{stage}(u)w_{stage}(t)]du ds dt.
     \label{eq:mdl-with-rotational-diffusion}
     \end{aligned}
 \end{equation}
 
 
-В первом приближении скорость определяется изотропным распределением:
+Если пренебречь хемотаксисом, положение и скорость определяются изотропными распределениями, поэтому функцию корреляции между скоростями можно представить в виде:
+\begin{equation}
+    \begin{aligned}
+        M[w_{stage}(u)w_{stage}(t)]=\frac{v_0^2}{3} M[\textbf{e}_{stage}(u) \cdot \textbf{e}_{stage}(t)]
+    \label{eq:speed-correlation-function}
+    \end{aligned}
+\end{equation}
+где $v_0$ -- постоянная скорость движения бактерии.
 
+Функция корреляции направлений с учетом вращательной диффузии и при $u < 0$ с учетом паттерна движения, состоящего из двух углов, в соответствии с результатом, полученным в \cite{taktikos_how_2013}, может быть представлена в виде:
+\begin{equation}
+    \begin{aligned}
+        M[\textbf{e}_{\beta}(u) \cdot \textbf{e}_{\beta}(t)] = 
+        \begin{cases}
+            e^{-2D_r(t-u)} & \text{если } 0 \leq u < t \\
+            \alpha e^{-2D_r t} e^{-(\lambda_0+2D_r)|u|} \cdot \\ \cdot \left ( \sqrt{\frac{\beta}{\alpha}} \sinh (\sqrt{\alpha \beta} \lambda_0 |u|) + \cosh(\sqrt{\alpha \beta} \lambda_0 |u|) \right ) & \text{если } u < 0.
+        \end{cases}        
+    \label{eq:direction-correlation-function}
+    \end{aligned}
+\end{equation}
+Аналогичную функцию корреляции можно записать для второго этапа $stage=\alpha$.
+
+Подставляя \cref{eq:direction-correlation-function,eq:speed-correlation-function} в выражение для среднего смещения этапа "Вперед-1" , соответствующего $stage=\beta$, \cref{eq:mdl-with-rotational-diffusion} получим:
+
+\begin{equation}
+    \begin{aligned}
+        M[\Delta z_{\beta}]=\frac{M[w_{\beta}(0+)]}{\lambda_0+2 D_r} + \lambda_0 A |\nabla c| \frac{v_0^2}{3} \left ( k_{\beta} \cosh(\sqrt{\alpha \beta} \lambda_0 T) + m_{\beta} \sinh(\sqrt{\alpha \beta} \lambda_0 T) + n_{\beta}) \right )
+        \label{eq:mdlrd-solution-beta}
+    \end{aligned}
+\end{equation}
+где коэффициенты определяются по следующим формулам:
+\begin{equation}
+    \begin{aligned}
+        k_{\beta}&=\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}(2D_r+\lambda_0+\alpha\lambda_0)}{(2D_r+\lambda_0)(4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2)}, \\
+        m_{\beta}&=\sqrt{\frac{\alpha}{\beta}}\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}(2D_r+\lambda_0+\beta\lambda_0)}{(2D_r+\lambda_0)(4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2)}, \\
+        n_{\beta}&=\frac{-\lambda_0^2 \alpha (2D_r+\lambda_0+\beta\lambda_0)}{(2D_r+\lambda_0)^2(4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2)}, \\
+        \label{eq:mdlrd-solution-beta-coeffs}
+    \end{aligned}
+\end{equation}
+
+
+
+Аналогичное выражение для среднего смещения можно записать для этапа "Вперед-2" ($stage=\alpha$):
+\begin{equation}
+    \begin{aligned}
+        M[\Delta z_{\alpha}]=\frac{M[w_{\alpha}(0+)]}{\lambda_0+2 D_r} + \lambda_0 A |\nabla c| \frac{v_0^2}{3} \left ( k_{\alpha} \cosh(\sqrt{\alpha \beta} \lambda_0 T) + m_{\alpha} \sinh(\sqrt{\alpha \beta} \lambda_0 T) + n_{\alpha}) \right )
+        \label{eq:mdlrd-solution-alpha}
+    \end{aligned}
+\end{equation}
+где $w_{\alpha}(0+)=w_{\beta}(t_{\beta}+)$ соответствует начальной скорости движения на этапе "Вперед-2" ($stage=\alpha$), а коэффициенты определяются по формулам:
+\begin{equation}
+    \begin{aligned}
+        k_{\alpha}&=\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}(2D_r+\lambda_0+\beta\lambda_0)}{(2D_r+\lambda_0)(4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2)}, \\
+        m_{\alpha}&=\sqrt{\frac{\beta}{\alpha}}\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}(2D_r+\lambda_0+\alpha\lambda_0)}{(2D_r+\lambda_0)(4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2)}, \\
+        n_{\alpha}&=\frac{-\lambda_0^2 \alpha (2D_r+\lambda_0+\alpha\lambda_0)}{(2D_r+\lambda_0)^2(4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2)}, \\
+        \label{eq:mdlrd-solution-alpha-coeffs}
+    \end{aligned}
+\end{equation}
 
 
 \section{Численная симуляция движения ансамбля бактерий}\label{sec:ch2/sec4}
