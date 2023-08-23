@@ -16,7 +16,6 @@
     \label{eq:chem}
     \end{aligned}
 \end{equation}
-
 где $K_{y}^{+}=\frac{Y_0}{\tau}$, $K_{y}^{-}=\frac{Y+1}{\tau}$ -- коэффициенты интенсивностей перехода между состояниями, $Y_0$ -- равновесное число молекул, $\tau$ -- характерное время релаксации сигнального пути к равновесному числу молекул. Являясь элементарным процессом рождения-смерти, по своей сути содержит все необходимые свойства: стохастичность, дискретность состояний и конечное время корреляции $\tau$. Значение $Y_0$ можно принять постоянным в связи с тем, что концентрация хемоаттрактанта изменяется медленно (в процессе движения клетки в слабом градиенте или при изменении уровня хемоаттрактанта во времени) по сравнению со шкалой времени переключения. 
 
 По аналогии рассмотрим модель переключения вращения жгутиков. Пусть $X = 0$ соответствует режиму вращения по часовой стрелке, а $X = 1$ — против часовой стрелки:
@@ -52,16 +51,16 @@
 
 Рассмотрим простую форму интенсивностей, заданной уравнением \cref{eq:turning-rates}, и оценим плотности вероятности длительностей для соответственно двух состояний CW (вращение бактерии на одном месте) и CCW (прямолинейное движение). В случае отсутствия молекул CheY-P, $Y=0$ (переключение нечувствительно к CheY-P, $\alpha_{\pm}=0$), процесс является пуассоновским, а плотности вероятности длительностей пребывания в состояниях экспоненциальны, $p(t_{ccw}), p(t_{cw}) \propto \exp(-K_0 t)$.
 
-Далее проводился численный анализ для случая равных чувствительностей переключения $\alpha_\pm = \alpha$. Численные результаты показывают, что коррелированный молекулярный шум дает степенное распределение длительностей, $p(t_{ccw}) \approx t^{-\gamma}$, в четко выраженном интервале (1.5-2 декады) с отсечкой при больших значениях. продолжительность (Рис. \cref{fig:duration-pdf}а).
+Далее проводился численный анализ для случая равных чувствительностей переключения $\alpha_\pm = \alpha$. Численные результаты показывают, что коррелированный молекулярный шум дает степенное распределение длительностей, $p(t_{ccw}) \approx t^{-\gamma}$, в четко выраженном интервале (1.5-2 декады) с отсечкой при больших значениях длительности. (Рис. \cref{fig:duration-pdf}а).
 Плотности с промежуточной степенной асимптотикой на более чем 2 декадах и затухающей с почти экспоненциальной отсечкой, типичны как для измерений in vivo и in vitro пространственной активности бактерий \cite{korobkova_molecular_2004,harris_generalized_2012}.
 
 \begin{figure}[ht]
     \begin{minipage}[b][][b]{0.49\linewidth}\centering
-        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig1a} \\ а)
+        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig1a} \\ (а)
     \end{minipage}
     \hfill
     \begin{minipage}[b][][b]{0.49\linewidth}\centering
-        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig1b} \\ б)
+        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig1b} \\ (б)
     \end{minipage}
     \caption{
         (а) Плотности вероятности длительностей в состоянии CCW для различных значений времени релаксации белка CheY-P, $\tau$. Остальные параметры: $\alpha = 10$, $Y_0 = 20$, $K_0 = 1$; (б) Плотности вероятности длительностей CW и CCW для $\alpha^+ = 1$, $\alpha^- = 10$, $Y_0 = 20$, $\tau = 50$, $K_0 = 1$. Штриховыми линиями обозначены участки со степенной асимптотикой с показателями $\gamma = 2.09$ (а) и $2.18$ (б), коэффициент детерминации которого $R^2 = 0.98$, количество реализаций $N_{ccw} = N_{cw} = 10^{10}$, $t \in [1, 100]$. На вставке повторно представлены плотности вероятностей длительностей с логарифмической шкалой по оси ординат.
@@ -77,18 +76,18 @@
 
 \begin{figure}[ht]
     \begin{minipage}[b][][b]{0.49\linewidth}\centering
-        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig2a} \\ а)
+        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig2a} \\ (а)
     \end{minipage}
     \hfill
     \begin{minipage}[b][][b]{0.49\linewidth}\centering
-        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig2c} \\ б)
+        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig2c} \\ (б)
     \end{minipage}\\
     \begin{minipage}[b][][b]{0.49\linewidth}\centering
-        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig2b} \\ в)
+        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig2b} \\ (в)
     \end{minipage}
     \hfill
     \begin{minipage}[b][][b]{0.49\linewidth}\centering
-        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig2d} \\ г)
+        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig2d} \\ (г)
     \end{minipage}
     \caption{
         Показатель степени $\gamma$ для степенного участка плотности вероятности длительности CCW в зависимости от двух параметров: (a) среднего числа молекул CheY-P $Y_0$ и чувствительности $\alpha$ для фиксированного $\tau = 50$, (б) среднего числа молекул CheY-P $Y_0$ и времени корреляции $\tau$ при фиксированных $\alpha = 10$ и $K_0 = 1$. В белой области не наблюдается степенная асимптотика распределений длительности (гипотеза о наличии степенного участка отклоняется). Плотности для комбинаций параметров, отмеченных на панелях (а) и (б) цифрами 1,2,3, показаны на панелях (в) и (г) соответственно. 
@@ -114,18 +113,18 @@
 
 \begin{figure}[ht]
     \begin{minipage}[b][][b]{0.49\linewidth}\centering
-        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig4a} \\ а)
+        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig4a} \\ (а)
     \end{minipage}
     \hfill
     \begin{minipage}[b][][b]{0.49\linewidth}\centering
-        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig4c} \\ б)
+        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig4c} \\ (б)
     \end{minipage}\\
     \begin{minipage}[b][][b]{0.49\linewidth}\centering
-        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig4b} \\ в)
+        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig4b} \\ (в)
     \end{minipage}
     \hfill
     \begin{minipage}[b][][b]{0.49\linewidth}\centering
-        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig4d} \\ г)
+        \includegraphics[width=1\linewidth]{genetic-noise/ru/fig4d} \\ (г)
     \end{minipage}
     \caption{
         Показатель степени $\gamma$ для степенного участка плотности вероятности длительности CCW в зависимости от двух параметров: (a) константы насыщения $K_d$ и среднего числа молекул CheY-P $Y_0$ для фиксированного параметра $\alpha^- = 30$, (б) константы насыщения $K_d$ и параметра чувствительности $\alpha^-$ при фиксированном параметре $Y_0 = 10$. Остальные параметры модели были выбраны $\alpha^+=1$, $\tau=50$, $K^+_0=100$, $K^-_0=0.2$. В белой области не наблюдается степенная асимптотика распределений длительности (гипотеза о наличии степенного участка отклоняется). Плотности для комбинаций параметров, отмеченных на панелях (а) и (б) цифрами 1,2,3,4, показаны на панелях (в) и (г) соответственно. 
