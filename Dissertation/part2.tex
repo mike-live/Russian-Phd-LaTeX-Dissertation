@@ -609,33 +609,33 @@
 %     \end{align*}
 % \end{equation}
 
-\begin{flalign*}
-	&a_0(\alpha, \beta) &= - 256\left (-2+s_{\alpha\beta}\right ),&&&\\
-	&a_1(\alpha, \beta) &= - 64\left (-46+12\alpha\beta+17s_{\alpha\beta}\right ),&&\\
-	&a_2(\alpha, \beta) &= - 32\left (-222+116\alpha\beta+(51+2\alpha\beta)s_{\alpha\beta}\right ),&&\\
-	&a_3(\alpha, \beta) &= 16\left ( 582-448\alpha\beta+20\alpha^2\beta^2-(48+29\alpha\beta)s_{\alpha\beta} \right ),&&\\
-	&a_4(\alpha, \beta) &= 8\left ( 894-896\alpha\beta+108\alpha^2\beta^2+(63-126\alpha\beta+10\alpha^2\beta^2)s_{\alpha\beta} \right ),&&\\
-	&a_5(\alpha, \beta) &= - 4( -804+994\alpha\beta-222\alpha^2\beta^2+4\alpha^3\beta^3+&&\\
-    &&+(-183+250\alpha\beta-53\alpha^2\beta^2)s_{\alpha\beta} ),&&\\
-	&a_6(\alpha, \beta) &= - 2( -392+590\alpha\beta-194\alpha^2\beta^2-4\alpha^3\beta^3+&&\\
-    &&+(-152+243\alpha\beta-97\alpha^2\beta^2+6\alpha^3\beta^3)s_{\alpha\beta} ),&&\\
-	&a_7(\alpha, \beta) &= - d_{\alpha\beta}^2\left ( -80-12\alpha\beta+4\alpha^2\beta^2+(-44+7\alpha\beta)s_{\alpha\beta} \right ),&&
-    \label{eq:dss-coefs}
-\end{flalign*}
-and
-\begin{flalign*}
-	&\displaystyle{b_0(\alpha, \beta) = 1024}, \\
-	&\displaystyle{b_1(\alpha, \beta) = 8192}, \\
-	&\displaystyle{b_2(\alpha, \beta) = 29184 - 1280\alpha\beta}, \\
-	&\displaystyle{b_3(\alpha, \beta) = 60928 - 8192\alpha\beta}, \\
-	&\displaystyle{b_4(\alpha, \beta) = 82496 - 22784\alpha\beta + 640\alpha^2\beta^2}, \\
-	&\displaystyle{b_5(\alpha, \beta) = 75648 - 35968\alpha\beta + 3072\alpha^2\beta^2}, \\
-	&\displaystyle{b_6(\alpha, \beta) = 47552 - 35248\alpha\beta + 6144\alpha^2\beta^2 - 160\alpha^3\beta^3}, \\
-	&\displaystyle{b_7(\alpha, \beta) = 20224 - 21952\alpha\beta + 6560\alpha^2\beta^2 - 512\alpha^3\beta^3}, \\
-	&\displaystyle{b_8(\alpha, \beta) = 5568 - 8480\alpha\beta + 3948\alpha^2\beta^2 - 624\alpha^3\beta^3 + 20\alpha^4\beta^4}, \\
-	&\displaystyle{b_9(\alpha, \beta) = 896 - 1856\alpha\beta + 1272\alpha^2\beta^2 - 344\alpha^3\beta^3 + 32\alpha^4\beta^4}, \\
-	&\displaystyle{b_{10}(\alpha, \beta) = 64 - 176\alpha\beta + 172\alpha^2\beta^2 - 73\alpha^3\beta^3 + 14\alpha^4\beta^4 - \alpha^5 \beta^5}.&
-\end{flalign*}
+\begin{equation}
+    \begin{aligned}
+	a_0(\alpha, \beta) =& - 256\left (-2+s_{\alpha\beta}\right ), \\
+	a_1(\alpha, \beta) =& - 64\left (-46+12\alpha\beta+17s_{\alpha\beta}\right ), \\
+	a_2(\alpha, \beta) =& - 32\left (-222+116\alpha\beta+(51+2\alpha\beta)s_{\alpha\beta}\right ), \\
+	a_3(\alpha, \beta) =& +16\left ( 582-448\alpha\beta+20\alpha^2\beta^2-(48+29\alpha\beta)s_{\alpha\beta} \right ), \\
+	a_4(\alpha, \beta) =& +8\left ( 894-896\alpha\beta+108\alpha^2\beta^2+(63-126\alpha\beta+10\alpha^2\beta^2)s_{\alpha\beta} \right ), \\
+	a_5(\alpha, \beta) =& - 4( -804+994\alpha\beta-222\alpha^2\beta^2+4\alpha^3\beta^3+\\
+    &+(-183+250\alpha\beta-53\alpha^2\beta^2)s_{\alpha\beta} ), \\
+	a_6(\alpha, \beta) =& - 2( -392+590\alpha\beta-194\alpha^2\beta^2-4\alpha^3\beta^3+\\
+    &+(-152+243\alpha\beta-97\alpha^2\beta^2+6\alpha^3\beta^3)s_{\alpha\beta} ), \\
+	a_7(\alpha, \beta) =& - d_{\alpha\beta}^2\left ( -80-12\alpha\beta+4\alpha^2\beta^2+(-44+7\alpha\beta)s_{\alpha\beta} \right ),\\
+    \textrm{и}\\
+	b_0(\alpha, \beta) =& 1024, \\
+	b_1(\alpha, \beta) =& 8192, \\
+	b_2(\alpha, \beta) =& 29184 - 1280\alpha\beta, \\
+	b_3(\alpha, \beta) =& 60928 - 8192\alpha\beta, \\
+	b_4(\alpha, \beta) =& 82496 - 22784\alpha\beta + 640\alpha^2\beta^2, \\
+	b_5(\alpha, \beta) =& 75648 - 35968\alpha\beta + 3072\alpha^2\beta^2, \\
+	b_6(\alpha, \beta) =& 47552 - 35248\alpha\beta + 6144\alpha^2\beta^2 - 160\alpha^3\beta^3, \\
+	b_7(\alpha, \beta) =& 20224 - 21952\alpha\beta + 6560\alpha^2\beta^2 - 512\alpha^3\beta^3, \\
+	b_8(\alpha, \beta) =& 5568 - 8480\alpha\beta + 3948\alpha^2\beta^2 - 624\alpha^3\beta^3 + 20\alpha^4\beta^4, \\
+	b_9(\alpha, \beta) =& 896 - 1856\alpha\beta + 1272\alpha^2\beta^2 - 344\alpha^3\beta^3 + 32\alpha^4\beta^4, \\
+	b_{10}(\alpha, \beta) =& 64 - 176\alpha\beta + 172\alpha^2\beta^2 - 73\alpha^3\beta^3 + 14\alpha^4\beta^4 - \alpha^5 \beta^5.
+\end{aligned}
+\end{equation}
+
 
 
 \section{Численная симуляция движения ансамбля бактерий}\label{sec:ch2/sec4}
