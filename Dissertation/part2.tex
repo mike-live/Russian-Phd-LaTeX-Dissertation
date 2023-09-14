@@ -30,7 +30,7 @@
 где коэффициенты $K_x^{+}=K^{+}(1-X)$, $K_x^{-}=K^{-}X$ ограничивают состояния $X={0, 1}$ и переходы контролируются состоянием регулирующего белка CheY-P через соответствующие интенсивности переключения:
 \begin{equation}
     \begin{aligned}
-        K^{\pm}=K_0 \exp(\pm\alpha^\pm \cdot \frac{Y_0-Y}{Y_0}),
+        K^{\pm}=K_0 \exp \left (\pm\alpha^\pm \cdot \frac{Y_0-Y}{Y_0} \right ),
     \label{eq:turning-rates}
     \end{aligned}
 \end{equation}
@@ -588,7 +588,7 @@
 Используя вид функции отклика из \cref{eq:response-ecoli} выполним интегрирование в соответствии с \cref{eq:mean-displacement-on-md-delta} и подставляя в \cref{eq:drift-speed-alpha-beta} получим итоговое выражение для средней скорости смещения при хемотаксисе бактерии с использованием паттерна с двумя поворотами:
 \begin{equation}
     \begin{aligned}
-        v_d=\frac{v_0^2\lambda_0^2W|\nabla c|\sum_{j=0}^{7} a_j(\alpha, \beta)D_r^(7-j)\lambda_0^j}{4\sum_{j=0}^{10}b_j(\alpha,\beta)D_r^(10-j)\lambda_0^j},
+        v_d=\frac{v_0^2\lambda_0^2W|\nabla c|\sum_{j=0}^{7} a_j(\alpha, \beta)D_r^{7-j}\lambda_0^j}{4\sum_{j=0}^{10}b_j(\alpha,\beta)D_r^{10-j}\lambda_0^j},
         \label{eq:drift-speed-solution}
     \end{aligned}
 \end{equation}
