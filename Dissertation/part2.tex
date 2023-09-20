@@ -219,10 +219,10 @@
 
 Расчет вектора условной вероятности в любой момент времени может быть произведен путем спектрального разложения матрицы $\boldsymbol{\mathrm{Q}}_{NT}$:
 \begin{equation}
-    \boldsymbol{\mathrm{P}}^{(0)}(t) = \sum_i \alpha_i \exp(\lambda_i t) v_i,
+    \boldsymbol{\mathrm{P}}^{(0)}(t) = \sum_i \alpha_i \exp(\lambda_i t) \boldsymbol{v_i},
     \label{eq:solution-no-transition-prob}
 \end{equation}
-где $\alpha_i=w_i^T \boldsymbol{\mathrm{P_S}}$, $\boldsymbol{w_i}$ -- набор левых собственных векторов матрицы $\boldsymbol{\mathrm{Q}}_{NT}$, $\boldsymbol{v_i}$ -- набор правых собственных векторов матрицы $\boldsymbol{\mathrm{Q}}_{NT}$. Затухание $P_A(t)$ с увеличением времени происходит монотонно из-за свойств спектра.
+где $\alpha_i=\boldsymbol{w_i}^T \boldsymbol{\mathrm{P_S}}$, $\boldsymbol{w_i}$ -- набор левых собственных векторов матрицы $\boldsymbol{\mathrm{Q}}_{NT}$, $\boldsymbol{v_i}$ -- набор правых собственных векторов матрицы $\boldsymbol{\mathrm{Q}}_{NT}$. Затухание $P_A(t)$ с увеличением времени происходит монотонно из-за свойств спектра.
 
 Для вычисления плотности вероятности $p(t)$ длительности нахождения в состоянии CCW, необходимо вычислить $P_A(t)$ для начального вектора $\boldsymbol{\mathrm{P_S}}$, соответствующего распределению по состояниям $Y$ в момент, когда происходит переход из состояния CW в состояние CCW.
 Тогда плотность вероятности записывается следующим образом:
@@ -285,9 +285,9 @@
 Пусть паттерн движения состоит из 4 этапов: 
 \begin{enumerate}
   \item <<Вперед-1>>: прямолинейное движение в некотором направлении.
-  \item <<$\alpha$-поворот>>: поворот на некоторый случайный угол $\Delta\phi_1$ при котором средний косинус угла равен $\alpha$, то есть $M[\cos (\Delta\phi_1)]=\alpha$.
+  \item <<$\alpha$-поворот>>: поворот на некоторый случайный угол $\Delta\phi_1$, при котором средний косинус угла равен $\alpha$, то есть $M[\cos (\Delta\phi_1)]=\alpha$.
   \item <<Вперед-2>>: прямолинейное движение в новом направлении.
-  \item <<$\beta$-поворот>>: поворот на некоторый случайный угол $\Delta\phi_2$ при котором средний косинус угла равен $\beta$, то есть $M[\cos (\Delta\phi_2)]=\beta$.
+  \item <<$\beta$-поворот>>: поворот на некоторый случайный угол $\Delta\phi_2$, при котором средний косинус угла равен $\beta$, то есть $M[\cos (\Delta\phi_2)]=\beta$.
 \end{enumerate}
 
 Скорость движения бактерии при прямолинейном движении рассматривается как константа, одинаковая для 1 и 3 этапов. Однако существуют другие виды бактерий, например, P.~putida, обладающие различной скоростью движения чередующихся прямолинейных движений \cite{theves_bacterial_2013}. В данной модели скорости выбраны одинаковыми, чтобы сконцентрироваться на влиянии именно паттерна движения, состоящего из двух различных углов.
@@ -343,7 +343,7 @@
 
 Анализ средней скорости смещения бактерий вида V.~alginolyticus ранее был проведен в предположении, что второй угол поворота имеет величину в $90^\circ$, что позволяет существенно упростить расчеты \cite{taktikos_how_2013}. Значение угла поворота, соответствующее $90^\circ$, было получено экспериментально при усреднении набора бактерий различных размеров. Однако экспериментально продемонстрированная зависимость угла поворота от размера клетки \cite{taute_high-throughput_2015} не позволяет применить аналогичный подход для оценки скорости смещения ансамбля для произвольных углов поворота. Далее рассматривается анализ оценки средней скорости смещения в условиях постоянного градиента с учетом паттерна, состоящего из двух различных углов поворота бактерии.
 
-Рассмотрим некоторый профиль концентрации хемоаттрактанта бактерий с малым постоянным градиентом вдоль направления оси аппликат (ось Oz) в пространстве $\mathbb{R}^3$:
+Рассмотрим некоторый профиль концентрации хемоаттрактанта бактерий с малым постоянным градиентом вдоль направления оси аппликат (ось $Oz$) в пространстве $\mathbb{R}^3$:
 \begin{equation}
     \begin{aligned}
         C(z) = c_0 + |\nabla c| z,
@@ -455,7 +455,7 @@
 Если пренебречь хемотаксисом, положение и скорость определяются изотропными распределениями, поэтому функцию корреляции между скоростями можно представить в виде:
 \begin{equation}
     \begin{aligned}
-        M[w_{stage}(u)w_{stage}(t)]=\frac{v_0^2}{3} M[\textbf{e}_{stage}(u) \cdot \textbf{e}_{stage}(t)],
+        M[w_{stage}(u)w_{stage}(t)]=\frac{v_0^2}{3} M \left [\textbf{e}_{stage}(u) \cdot \textbf{e}_{stage}(t) \right ],
     \label{eq:speed-correlation-function}
     \end{aligned}
 \end{equation}
@@ -468,26 +468,26 @@
         \begin{cases}
             e^{-2D_r(t-u)} & \text{если } 0 \leq u < t, \\
             \alpha e^{-2D_r t} e^{-(\lambda_0+2D_r)|u|} \times \\ 
-            \times \left ( \sqrt{\frac{\beta}{\alpha}} \sinh (\sqrt{\alpha \beta} \lambda_0 |u|) + \cosh(\sqrt{\alpha \beta} \lambda_0 |u|) \right ) & \text{если } u < 0.
+            \times \left ( \sqrt{\frac{\beta}{\alpha}} \sinh \left (\sqrt{\alpha \beta} \lambda_0 |u|\right ) + \cosh \left (\sqrt{\alpha \beta} \lambda_0 |u|\right ) \right ) & \text{если } u < 0.
         \end{cases}        
     \label{eq:direction-correlation-function}
     \end{aligned}
 \end{equation}
-Аналогичную функцию корреляции можно записать для второго этапа $stage=\alpha$.
+Аналогичную функцию корреляции можно записать для второго этапа паттерна: $stage=\alpha$.
 
 Подставляя \cref{eq:direction-correlation-function,eq:speed-correlation-function} в выражение для среднего смещения этапа <<Вперед-1>>, соответствующего $stage=\beta$, \cref{eq:mdl-with-rotational-diffusion} получим:
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{\beta}]&=\frac{M[w_{\beta}(0+)]}{\lambda_0+2 D_r} + \\ &+ \lambda_0 A |\nabla c| \frac{v_0^2}{3} \left ( k_{\beta} \cosh(\sqrt{\alpha \beta} \lambda_0 T) + m_{\beta} \sinh(\sqrt{\alpha \beta} \lambda_0 T) + n_{\beta}) \right ),
+        M[\Delta z_{\beta}]&=\frac{M[w_{\beta}(0+)]}{\lambda_0+2 D_r} + \\ &+ \lambda_0 A |\nabla c| \frac{v_0^2}{3} \left ( k_{\beta} \cosh \left (\sqrt{\alpha \beta} \lambda_0 T \right ) + m_{\beta} \sinh \left (\sqrt{\alpha \beta} \lambda_0 T \right ) + n_{\beta} \right ),
         \label{eq:mdlrd-solution-beta}
     \end{aligned}
 \end{equation}
 где коэффициенты определяются по следующим формулам:
 \begin{equation}
     \begin{aligned}
-        k_{\beta}&=\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}(2D_r+\lambda_0+\alpha\lambda_0)}{(2D_r+\lambda_0)(4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2)}, \\
-        m_{\beta}&=\sqrt{\frac{\alpha}{\beta}}\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}(2D_r+\lambda_0+\beta\lambda_0)}{(2D_r+\lambda_0)(4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2)}, \\
-        n_{\beta}&=\frac{-\lambda_0^2 \alpha (2D_r+\lambda_0+\beta\lambda_0)}{(2D_r+\lambda_0)^2(4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2)}. \\
+        k_{\beta}&=\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}\left (2D_r+\lambda_0+\alpha\lambda_0 \right )}{(2D_r+\lambda_0)\left (4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2\right )}, \\
+        m_{\beta}&=\sqrt{\frac{\alpha}{\beta}}\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}\left (2D_r+\lambda_0+\beta\lambda_0 \right )}{(2D_r+\lambda_0)\left (4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2 \right )}, \\
+        n_{\beta}&=\frac{-\lambda_0^2 \alpha \left (2D_r+\lambda_0+\beta\lambda_0 \right )}{(2D_r+\lambda_0)^2\left (4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2 \right )}. \\
         \label{eq:mdlrd-solution-beta-coeffs}
     \end{aligned}
 \end{equation}
@@ -495,30 +495,30 @@
 Аналогичное выражение для среднего смещения можно записать для этапа <<Вперед-2>> ($stage=\alpha$):
 \begin{equation}
     \begin{aligned}
-        M[\Delta z_{\alpha}]&=\frac{M[w_{\alpha}(0+)]}{\lambda_0+2 D_r} +\\ &+ \lambda_0 A |\nabla c| \frac{v_0^2}{3} \left ( k_{\alpha} \cosh(\sqrt{\alpha \beta} \lambda_0 T) + m_{\alpha} \sinh(\sqrt{\alpha \beta} \lambda_0 T) + n_{\alpha} \right )
+        M[\Delta z_{\alpha}]&=\frac{M[w_{\alpha}(0+)]}{\lambda_0+2 D_r} +\\ &+ \lambda_0 A |\nabla c| \frac{v_0^2}{3} \left ( k_{\alpha} \cosh \left (\sqrt{\alpha \beta} \lambda_0 T \right ) + m_{\alpha} \sinh \left (\sqrt{\alpha \beta} \lambda_0 T \right ) + n_{\alpha} \right )
         \label{eq:mdlrd-solution-alpha}
     \end{aligned}
 \end{equation}
 где $w_{\alpha}(0+)=w_{\beta}(t_{\beta}+)$ соответствует начальной скорости движения на этапе <<Вперед-2>> ($stage=\alpha$), а коэффициенты определяются по формулам:
 \begin{equation}
     \begin{aligned}
-        k_{\alpha}&=\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}(2D_r+\lambda_0+\beta\lambda_0)}{(2D_r+\lambda_0)(4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2)}, \\
-        m_{\alpha}&=\sqrt{\frac{\beta}{\alpha}}\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}(2D_r+\lambda_0+\alpha\lambda_0)}{(2D_r+\lambda_0)(4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2)}, \\
-        n_{\alpha}&=\frac{-\lambda_0^2 \alpha (2D_r+\lambda_0+\alpha\lambda_0)}{(2D_r+\lambda_0)^2(4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2)}. \\
+        k_{\alpha}&=\frac{\lambda_0 e^{-(2D_r+\lambda_0)T} \left (2D_r+\lambda_0+\beta\lambda_0 \right )}{(2D_r+\lambda_0) \left (4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2 \right )}, \\
+        m_{\alpha}&=\sqrt{\frac{\beta}{\alpha}}\frac{\lambda_0 e^{-(2D_r+\lambda_0)T} \left (2D_r+\lambda_0+\alpha\lambda_0 \right )}{(2D_r+\lambda_0) \left (4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2 \right )}, \\
+        n_{\alpha}&=\frac{-\lambda_0^2 \alpha (2D_r+\lambda_0+\alpha\lambda_0)}{(2D_r+\lambda_0)^2 \left (4D_r^2+4D_r\lambda_0+(1-\alpha\beta)\lambda_0^2 \right )}. \\
         \label{eq:mdlrd-solution-alpha-coeffs}
     \end{aligned}
 \end{equation}
 
-Далее проведем расчет для проекций скоростей движения бактерии на ось Oz в моменты начала этапов: $M[w_{\beta}(0+)]$ и $M[w_{\beta}(t_{\beta}+)]$. Определения параметра $\alpha$ для поворота в момент времени $t=0$ и параметра $\beta$ для поворота в момент времени $t_{\beta}$ можно записать через скалярное произведение:
+Далее проведем расчет для проекций скоростей движения бактерии на ось $Oz$ в моменты начала этапов: $M[w_{\beta}(0+)]$ и $M[w_{\beta}(t_{\beta}+)]$. Определения параметра $\alpha$ для поворота в момент времени $t=0$ и параметра $\beta$ для поворота в момент времени $t_{\beta}$ можно записать через скалярное произведение:
 \begin{equation}
     \begin{aligned}
-        &M[\cos (\Delta\phi_2)]&=&M[\textbf{e}(0-) \cdot \textbf{e}(0+)]&=&\alpha, \\
-        &M[\cos (\Delta\phi_2)]&=&M[\textbf{e}(t_{\beta}-) \cdot \textbf{e}(t_{\beta}+)]&=&\beta. \\
+        &M \left [\cos (\Delta\phi_2) \right ]&=&\,M[\textbf{e}(0-) \cdot \textbf{e}(0+)]&=&\,\alpha, \\
+        &M[\cos (\Delta\phi_2)]&=&\,M[\textbf{e}(t_{\beta}-) \cdot \textbf{e}(t_{\beta}+)]&=&\,\beta. \\
         \label{eq:alpha-beta-definition}
     \end{aligned}
 \end{equation}
 
-Когда бактерия совершает поворот, выбор нового направления определяется распределением вероятностей, которое симметрично относительно первоначального направления. В силу осевой симметрии и выражения \cref{eq:alpha-beta-definition}, проекции скоростей движения бактерии на ось Oz могут быть выражены следующим образом:
+Когда бактерия совершает поворот, выбор нового направления определяется распределением вероятностей, которое симметрично относительно первоначального направления. В силу осевой симметрии и выражения \cref{eq:alpha-beta-definition}, проекции скоростей движения бактерии на ось $Oz$ могут быть выражены следующим образом:
 \begin{equation}
     \begin{aligned}
         &M[w(0+)]&=&\alpha M[w(0-)], \\
@@ -530,7 +530,7 @@
 По аналогии с выводом выражения для второго интеграла в \cref{eq:md-linearization} и используя \cref{eq:alpha-beta-speed-change}, запишем выражение для скорости на втором этапе:
 \begin{equation}
     \begin{aligned}
-        M[w(t_{\beta}+)] = \beta \left ( \frac{M[w(0+)] \lambda_0}{\lambda_0 + 2 D_r} - \lambda_0 A |\nabla c| (I_1^{(1)} - I_2^{(1)}) \right ), \\
+        M[w(t_{\beta}+)] = \beta \left ( \frac{M[w(0+)] \lambda_0}{\lambda_0 + 2 D_r} - \lambda_0 A |\nabla c| \left (I_1^{(1)} - I_2^{(1)} \right ) \right ), \\
         \label{eq:speed-beta-equation}
     \end{aligned}
 \end{equation}
@@ -554,7 +554,7 @@
 Средняя скорость движения бактерии в конце этапа <<Вперед-1>> ($t=t_{\alpha}$) совпадает со средней скоростью до этапа $\alpha$-поворота ($t=0$), то есть $M[w(t_{\alpha}-)]=M[w(0-)]$. Также с учетом \cref{eq:alpha-beta-definition} выражение для \cref{eq:speed-beta-equation} может быть записано следующим образом:
 \begin{equation}
     \begin{aligned}
-        M[w(0+)] = \alpha \left ( \frac{M[w(t_{\beta}+)] \lambda_0}{\lambda_0 + 2 D_r} - \lambda_0 A |\nabla c| (I_1^{(2)} - I_2^{(2)}) \right ). \\
+        M[w(0+)] = \alpha \left ( \frac{M[w(t_{\beta}+)] \lambda_0}{\lambda_0 + 2 D_r} - \lambda_0 A |\nabla c| \left (I_1^{(2)} - I_2^{(2)} \right ) \right ). \\
         \label{eq:speed-alpha-equation}
     \end{aligned}
 \end{equation}
@@ -562,8 +562,8 @@
 Полученные выражения \cref{eq:speed-beta-equation,eq:speed-alpha-equation} представляют собой систему двух линейных уравнений относительно $M[w(0+)]$ и $M[w(t_{\beta}+)]$. Находя решение системы, получим прямое выражение для каждой из искомых средних скоростей:
 \begin{equation}
     \begin{aligned}
-        M[w(0+)] = \frac{\alpha A |\nabla c|\lambda_0 (\lambda_0+2D_r)^2}{(\lambda_0+2D_r)^2-\alpha\beta\lambda_0^2} \left ( \frac{\beta \lambda_0}{\lambda_0+2D_r}(I_2^{(1)} - I_1^{(1)}) + (I_2^{(2)} - I_1^{(2)})\right ), \\
-        M[w(t_{\beta}+)] = \frac{\beta A |\nabla c|\lambda_0 (\lambda_0+2D_r)^2}{(\lambda_0+2D_r)^2-\alpha\beta\lambda_0^2} \left ( \frac{\alpha \lambda_0}{\lambda_0+2D_r}(I_2^{(2)} - I_1^{(2)}) + (I_2^{(1)} - I_1^{(1)})\right ). \\
+        M[w(0+)] = \frac{\alpha A |\nabla c|\lambda_0 (\lambda_0+2D_r)^2}{(\lambda_0+2D_r)^2-\alpha\beta\lambda_0^2} \left ( \frac{\beta \lambda_0}{\lambda_0+2D_r}\left (I_2^{(1)} - I_1^{(1)}\right ) + \left (I_2^{(2)} - I_1^{(2)}\right )\right ), \\
+        M[w(t_{\beta}+)] = \frac{\beta A |\nabla c|\lambda_0 (\lambda_0+2D_r)^2}{(\lambda_0+2D_r)^2-\alpha\beta\lambda_0^2} \left ( \frac{\alpha \lambda_0}{\lambda_0+2D_r}(I_2^{(2)} - I_1^{(2)}\right ) + \left (I_2^{(1)} - I_1^{(1)})\right ). \\
         \label{eq:speed-alpha-beta-solution}
     \end{aligned}
 \end{equation}
@@ -571,16 +571,16 @@
 Подставляя выражения \cref{eq:speed-alpha-beta-solution,eq:mdlrd-solution-alpha-coeffs,eq:mdlrd-solution-alpha,eq:mdlrd-solution-beta-coeffs,eq:mdlrd-solution-beta} в \cref{eq:drift-speed-alpha-beta} и упрощая члены, получим выражение для средней скорости смещения бактерии при паттерне, состоящем из двух углов, с $\delta$-функцией отклика:
 \begin{equation}
     \begin{aligned}
-        v_{\delta}&=\lambda_0 A |\nabla c| \frac{v_0^2}{3} \left ( k_{\delta} \cosh(\sqrt{\alpha \beta} \lambda_0 T) + m_{\delta} \sinh(\sqrt{\alpha \beta} \lambda_0 T) + n_{\delta}) \right ),
+        v_{\delta}&=\lambda_0 A |\nabla c| \frac{v_0^2}{3} \left ( k_{\delta} \cosh \left (\sqrt{\alpha \beta} \lambda_0 T \right ) + m_{\delta} \sinh \left (\sqrt{\alpha \beta} \lambda_0 T \right ) + n_{\delta} \right ),
         \label{eq:mean-displacement-delta-response-solution}
     \end{aligned}
 \end{equation}
 где коэффициенты определяются по следующим формулам с учетом $s_{\alpha\beta}=\alpha+\beta$ и $d_{\alpha\beta}=\alpha\beta-1$:
 \begin{equation}
     \begin{aligned}
-        k_{\delta}&=\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}(4D_r^2(2-s_{\alpha\beta})-8D_r d_{\alpha\beta}\lambda_0-(2+s_{\alpha\beta})d_{\alpha\beta}\lambda_0^2)}{2(4D_r^2+4D_r\lambda_0-d_{\alpha\beta}\lambda_0^2)^2}, \\
-        m_{\delta}&=\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}(4D_r^2(s_{\alpha\beta}-2\alpha\beta)-4D_rd_{\alpha\beta}\lambda_0s_{\alpha\beta}-\lambda_0^2d_{\alpha\beta}(s_{\alpha\beta}+2\alpha\beta))}{2(4D_r^2+4D_r\lambda_0-d_{\alpha\beta}\lambda_0^2)^2\sqrt{\alpha\beta}}, \\
-        n_{\delta}&=\frac{\lambda_0^2 (4D_r^2(-s_{\alpha\beta}+2\alpha\beta)+4D_r\lambda_0d_{\alpha\beta}s_{\alpha\beta}+\lambda_0^2d_{\alpha\beta}(s_{\alpha\beta}+2\alpha\beta))}{2(2D_r+\lambda_0)(4D_r^2+4D_r\lambda_0-d_{\alpha\beta}\lambda_0^2)^2}. \\
+        k_{\delta}&=\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}\left (4D_r^2(2-s_{\alpha\beta})-8D_r d_{\alpha\beta}\lambda_0-(2+s_{\alpha\beta})d_{\alpha\beta}\lambda_0^2 \right )}{2\left (4D_r^2+4D_r\lambda_0-d_{\alpha\beta}\lambda_0^2\right )^2}, \\
+        m_{\delta}&=\frac{\lambda_0 e^{-(2D_r+\lambda_0)T}\left (4D_r^2(s_{\alpha\beta}-2\alpha\beta)-4D_rd_{\alpha\beta}\lambda_0s_{\alpha\beta}-\lambda_0^2d_{\alpha\beta}(s_{\alpha\beta}+2\alpha\beta)\right )}{2\left (4D_r^2+4D_r\lambda_0-d_{\alpha\beta}\lambda_0^2\right )^2\sqrt{\alpha\beta}}, \\
+        n_{\delta}&=\frac{\lambda_0^2 \left (4D_r^2(-s_{\alpha\beta}+2\alpha\beta)+4D_r\lambda_0d_{\alpha\beta}s_{\alpha\beta}+\lambda_0^2d_{\alpha\beta}(s_{\alpha\beta}+2\alpha\beta)\right )}{2(2D_r+\lambda_0)\left (4D_r^2+4D_r\lambda_0-d_{\alpha\beta}\lambda_0^2\right )^2}. \\
         \label{eq:mddrs-coeffs}
     \end{aligned}
 \end{equation}
@@ -606,33 +606,33 @@
     &+(-152+243\alpha\beta-97\alpha^2\beta^2+6\alpha^3\beta^3)s_{\alpha\beta} ), \\
 	a_7(\alpha, \beta) =& - d_{\alpha\beta}^2\left ( -80-12\alpha\beta+4\alpha^2\beta^2+(-44+7\alpha\beta)s_{\alpha\beta} \right ),\\
     \textrm{и}\\
-	b_0(\alpha, \beta) =& 1024, \\
-	b_1(\alpha, \beta) =& 8192, \\
-	b_2(\alpha, \beta) =& 29184 - 1280\alpha\beta, \\
-	b_3(\alpha, \beta) =& 60928 - 8192\alpha\beta, \\
-	b_4(\alpha, \beta) =& 82496 - 22784\alpha\beta + 640\alpha^2\beta^2, \\
-	b_5(\alpha, \beta) =& 75648 - 35968\alpha\beta + 3072\alpha^2\beta^2, \\
-	b_6(\alpha, \beta) =& 47552 - 35248\alpha\beta + 6144\alpha^2\beta^2 - 160\alpha^3\beta^3, \\
-	b_7(\alpha, \beta) =& 20224 - 21952\alpha\beta + 6560\alpha^2\beta^2 - 512\alpha^3\beta^3, \\
-	b_8(\alpha, \beta) =& 5568 - 8480\alpha\beta + 3948\alpha^2\beta^2 - 624\alpha^3\beta^3 + 20\alpha^4\beta^4, \\
-	b_9(\alpha, \beta) =& 896 - 1856\alpha\beta + 1272\alpha^2\beta^2 - 344\alpha^3\beta^3 + 32\alpha^4\beta^4, \\
-	b_{10}(\alpha, \beta) =& 64 - 176\alpha\beta + 172\alpha^2\beta^2 - 73\alpha^3\beta^3 + 14\alpha^4\beta^4 - \alpha^5 \beta^5.
+	b_0(\alpha, \beta) =&\, 1024, \\
+	b_1(\alpha, \beta) =&\, 8192, \\
+	b_2(\alpha, \beta) =&\, 29184 - 1280\alpha\beta, \\
+	b_3(\alpha, \beta) =&\, 60928 - 8192\alpha\beta, \\
+	b_4(\alpha, \beta) =&\, 82496 - 22784\alpha\beta + 640\alpha^2\beta^2, \\
+	b_5(\alpha, \beta) =&\, 75648 - 35968\alpha\beta + 3072\alpha^2\beta^2, \\
+	b_6(\alpha, \beta) =&\, 47552 - 35248\alpha\beta + 6144\alpha^2\beta^2 - 160\alpha^3\beta^3, \\
+	b_7(\alpha, \beta) =&\, 20224 - 21952\alpha\beta + 6560\alpha^2\beta^2 - 512\alpha^3\beta^3, \\
+	b_8(\alpha, \beta) =&\, 5568 - 8480\alpha\beta + 3948\alpha^2\beta^2 - 624\alpha^3\beta^3 + 20\alpha^4\beta^4, \\
+	b_9(\alpha, \beta) =&\, 896 - 1856\alpha\beta + 1272\alpha^2\beta^2 - 344\alpha^3\beta^3 + 32\alpha^4\beta^4, \\
+	b_{10}(\alpha, \beta) =&\, 64 - 176\alpha\beta + 172\alpha^2\beta^2 - 73\alpha^3\beta^3 + 14\alpha^4\beta^4 - \alpha^5 \beta^5.
 \end{aligned}
 \end{equation}
 
 Полученная формула является обобщением частных случаев, которые были рассмотрены ранее в работах по исследованию хемотаксиса. Характерным способом движения для бактерии E.~coli является паттерн с одним углом поворота, что соответствует случаю $\alpha=\beta$ в рассмотренном паттерне движения. Подставляя одинаковые углы, получим формулу №(57) из работы Яноша Локсей \cite{locsei_persistence_2007}:
 \begin{equation}
     \begin{aligned}
-        v_d^{(1)} = W|\nabla c|v_0^2\frac{\lambda_0^2(1-\alpha)(4D_r+\lambda_0(5-2\alpha))}{6(2D_r+\lambda_0(1-\alpha))(2D_r+(2-\alpha)\lambda_0)},
+        v_d^{(1)} = W|\nabla c|v_0^2\frac{\lambda_0^2(1-\alpha)\left (4D_r+\lambda_0(5-2\alpha) \right )}{6\left (2D_r+\lambda_0(1-\alpha) \right ) \left (2D_r+(2-\alpha)\lambda_0 \right )},
     \end{aligned}
 \end{equation}
-где $W$ определенное в \cite{locsei_persistence_2007} записывается как $W=\frac{2\epsilon\lambda_0}{3v_0|\nabla c|}$, $\epsilon=\max_t|\Delta(t)|$.
+где $W$ определенное в \cite{locsei_persistence_2007} записывается как $W=\frac{2\epsilon\lambda_0}{3v_0|\nabla c|}$, $\epsilon=\max\limits_t|\Delta(t)|$.
 
 Решение для случая двух углов с фиксированным вторым углом, равным $90^\circ$, полученное в работе Йоханнеса Тактикоса \cite{taktikos_how_2013}, формула №(28) также является частным случаем приведенного решения для $\beta=0$:
 \begin{equation}
     \begin{aligned}
         v_d^{(2)} =& W |\nabla c| v_0^2 \lambda_0^2 \times \\
-		\times& \frac{(16D_r^3(2-\alpha) + 4D_r^2\lambda_0(22-5\alpha) + 2D_r\lambda_0^2(38+5\alpha) + \lambda_0^3(20+11\alpha))}{192(D_r+\lambda_0)^4(2D_r+\lambda_0)^2}.
+		\times& \frac{\left (16D_r^3(2-\alpha) + 4D_r^2\lambda_0(22-5\alpha) + 2D_r\lambda_0^2(38+5\alpha) + \lambda_0^3(20+11\alpha) \right )}{192(D_r+\lambda_0)^4(2D_r+\lambda_0)^2}.
     \end{aligned}
 \end{equation}
 
